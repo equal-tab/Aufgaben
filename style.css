@@ -33,6 +33,7 @@ header div h1, svg{
   align-items: center;
   width: 98%;
   border-radius: 50px;
+Background-filter: blur;
 }
 .createTask input {
   border: 0;
