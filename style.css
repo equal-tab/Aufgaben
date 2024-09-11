@@ -1,0 +1,111 @@
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+body {
+  background-color: #2c323f;
+}
+header div {
+  width: 100%;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header div h1, svg{
+    margin: 10px 20px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+.createTask {
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  background-color: rgba(0, 0, 0, 0.315);
+  height: 50px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 98%;
+  border-radius: 50px;
+}
+.createTask input {
+  border: 0;
+  height: 80%;
+  width: 100%;
+  border-radius: 35px;
+  outline: none;
+  padding: 8px 20px;
+  font-size: 17px;
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+#more {
+  transition: ease-in-out 0.3s;
+  background: none;
+  border: none;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+#add {
+  margin-left: 5px;
+  margin-right: 1vw;
+  margin-top: -1px;
+  padding: 8px;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  transition: ease-in-out 0.2s;
+}
+#add:active {
+  transition: ease-in-out 0.2s;
+  background-color: rgba(128, 128, 128, 0.315);
+  border-radius: 100px;
+}
+#more:active {
+  transition: ease-in-out 0.3s;
+  background-color: rgba(128, 128, 128, 0.315);
+  border-radius: 100px;
+}
+.addform {
+  margin-left: 10px;
+  width: 200vw;
+}
+.moreMenu{
+    display: none; /* Das Menü ist standardmäßig versteckt */
+    position: absolute; /* Absolut positioniert, um an einer bestimmten Stelle angezeigt zu werden */
+    background-color: rgba(0, 0, 0, 0.24);
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Stellt sicher, dass es über anderen Elementen liegt */
+    border: none;
+    border-radius: 25px;
+    width: auto;
+    font-size: 15px;
+}
+.moreMenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.moreMenu li {
+    display: flex; /* Flexbox für horizontale Ausrichtung */
+    align-items: center; /* Zentriert den Inhalt vertikal */
+    padding: 2px 6px;
+    cursor: pointer;
+    border-radius: 25px;
+    margin: 5px;
+}
+
+
+.moreMenu li:hover {
+    background-color: rgba(43, 41, 41, 0.637); /* Hintergrundfarbe beim Hover-Effekt */
+}
+
