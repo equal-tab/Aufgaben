@@ -7,6 +7,7 @@
 }
 body {
   background-color: #2c323f;
+  
 }
 header div {
   width: 100%;
@@ -33,7 +34,6 @@ header div h1, svg{
   align-items: center;
   width: 98%;
   border-radius: 50px;
-Background-filter: blur;
 }
 .createTask input {
   border: 0;
@@ -44,6 +44,7 @@ Background-filter: blur;
   padding: 8px 20px;
   font-size: 17px;
   background-color: rgba(0, 0, 0, 0.075);
+  color: white;
 }
 
 #more {
@@ -63,6 +64,7 @@ Background-filter: blur;
   border: none;
   background-color: transparent;
   transition: ease-in-out 0.2s;
+  font-size: 17px;
 }
 #add:active {
   transition: ease-in-out 0.2s;
@@ -81,7 +83,7 @@ Background-filter: blur;
 .moreMenu{
     display: none; /* Das Menü ist standardmäßig versteckt */
     position: absolute; /* Absolut positioniert, um an einer bestimmten Stelle angezeigt zu werden */
-    background-color: rgba(0, 0, 0, 0.24);
+    background-color: rgba(0, 0, 0, 0.438);
     border: 1px solid #ccc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000; /* Stellt sicher, dass es über anderen Elementen liegt */
@@ -105,8 +107,27 @@ Background-filter: blur;
     margin: 5px;
 }
 
-
 .moreMenu li:hover {
     background-color: rgba(43, 41, 41, 0.637); /* Hintergrundfarbe beim Hover-Effekt */
 }
 
+#todoview div{ 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.315);
+  width: 98%;
+  border-radius: 50px;
+  margin-left: 0.9vw;
+  
+  height: 50px;
+  margin-top: 0.5vh;
+}
+#todoview p{
+  padding-left: 2vw;
+ flex: 1;
+}
+#todoview input{
+  margin-left: 2vw;
+}
