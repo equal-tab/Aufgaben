@@ -1,0 +1,113 @@
+:root {
+  --background-color-white: #e4e9f7;
+  --div-color-white: #ffffff69;
+
+  --background-color-dark: #2c323f;
+}
+svg {
+  fill: black;
+}
+.dark svg {
+  fill: white;
+}
+
+body.dark {
+  background-color: var(--background-color-dark);
+  color: white;
+}
+
+header.dark {
+  color: white;
+}
+
+.createTask.dark {
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  background-color: rgba(0, 0, 0, 0.315);
+  height: 50px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 98%;
+  border-radius: 50px;
+  color: black;
+  fill: black;
+  transition: ease-in-out 0.3s;
+  color: white;
+}
+
+.createTask.dark input {
+  border: 0;
+  height: 80%;
+  width: 100%;
+  border-radius: 35px;
+  outline: none;
+  padding: 8px 20px;
+  font-size: 17px;
+  background-color: rgba(0, 0, 0, 0.075);
+  color: white;
+}
+
+.add.dark {
+  color: white;
+}
+
+.moreMenu.dark {
+  display: none; /* Das Menü ist standardmäßig versteckt */
+  position: absolute; /* Absolut positioniert, um an einer bestimmten Stelle angezeigt zu werden */
+  background-color: rgba(0, 0, 0, 0.438);
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Stellt sicher, dass es über anderen Elementen liegt */
+  border: none;
+  border-radius: 25px;
+  width: auto;
+  font-size: 15px;
+  color: white;
+}
+
+.todoview.dark div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.315);
+  width: 98%;
+  border-radius: 50px;
+  margin-left: 0.9vw;
+
+  height: 50px;
+  margin-top: 0.5vh;
+}
+
+#settingsmenu.dark {
+  display: none; /* Das Menü ist standardmäßig versteckt */
+  position: absolute; /* Absolut positioniert, um an einer bestimmten Stelle angezeigt zu werden */
+  background-color: rgba(0, 0, 0, 0.932);
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Stellt sicher, dass es über anderen Elementen liegt */
+  border: none;
+  border-radius: 25px;
+  width: auto;
+  font-size: 15px;
+  transform: translateX(-80%);
+  color: white;
+}
+
+.settingsmenu.dark svg {
+  fill: white;
+}
+
+#settingsmenu.dark li:hover {
+  background-color: rgba(43, 41, 41, 0.637);
+}
+
+.moreMenu.dark li:hover {
+  background-color: rgba(
+    43,
+    41,
+    41,
+    0.637
+  ); /* Hintergrundfarbe beim Hover-Effekt */
+}

@@ -1,23 +1,35 @@
+:root {
+  --background-color-white: #e4e9f7;
+  --div-color-white: #ffffff69;
+
+  --background-color-dark: #2c323f;
+}
+
 * {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white;
+  transition: ease-in-out 0.3s;
 }
+
 body {
-  background-color: #2c323f;
-  
+  background-color: var(--background-color-white);
+  color: black;
+  fill: black;
 }
+
 header div {
+  background-color: div;
   width: 100%;
   border-radius: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-header div h1, svg{
-    margin: 10px 20px;
+header div h1,
+svg {
+  margin: 10px 20px;
 }
 
 .main {
@@ -27,14 +39,16 @@ header div h1, svg{
 .createTask {
   margin-left: 0.5vw;
   margin-right: 0.5vw;
-  background-color: rgba(0, 0, 0, 0.315);
+  background-color: var(--div-color-white);
   height: 50px;
   display: flex;
   justify-content: start;
   align-items: center;
   width: 98%;
   border-radius: 50px;
+  transition: ease-in-out 0.3s;
 }
+
 .createTask input {
   border: 0;
   height: 80%;
@@ -44,7 +58,7 @@ header div h1, svg{
   padding: 8px 20px;
   font-size: 17px;
   background-color: rgba(0, 0, 0, 0.075);
-  color: white;
+  color: black;
 }
 
 #more {
@@ -66,6 +80,7 @@ header div h1, svg{
   transition: ease-in-out 0.2s;
   font-size: 17px;
 }
+
 #add:active {
   transition: ease-in-out 0.2s;
   background-color: rgba(128, 128, 128, 0.315);
@@ -80,85 +95,83 @@ header div h1, svg{
   margin-left: 10px;
   width: 200vw;
 }
-.moreMenu{
-    display: none; /* Das Menü ist standardmäßig versteckt */
-    position: absolute; /* Absolut positioniert, um an einer bestimmten Stelle angezeigt zu werden */
-    background-color: rgba(0, 0, 0, 0.438);
-    border: 1px solid #ccc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Stellt sicher, dass es über anderen Elementen liegt */
-    border: none;
-    border-radius: 25px;
-    width: auto;
-    font-size: 15px;
-}
+
 .moreMenu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .moreMenu li {
-    display: flex; /* Flexbox für horizontale Ausrichtung */
-    align-items: center; /* Zentriert den Inhalt vertikal */
-    padding: 2px 6px;
-    cursor: pointer;
-    border-radius: 25px;
-    margin: 5px;
+  display: flex; /* Flexbox für horizontale Ausrichtung */
+  align-items: center; /* Zentriert den Inhalt vertikal */
+  padding: 2px 6px;
+  cursor: pointer;
+  border-radius: 25px;
+  margin: 5px;
 }
 
-.moreMenu li:hover {
-    background-color: rgba(43, 41, 41, 0.637); /* Hintergrundfarbe beim Hover-Effekt */
+.moreMenu {
+  display: none; /* Das Menü ist standardmäßig versteckt */
+  position: absolute; /* Absolut positioniert, um an einer bestimmten Stelle angezeigt zu werden */
+  background-color: #f3f0f0;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Stellt sicher, dass es über anderen Elementen liegt */
+  border: none;
+  border-radius: 25px;
+  width: auto;
+  font-size: 15px;
 }
-
-#todoview div{ 
+.todoview div {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.315);
+
   width: 98%;
   border-radius: 50px;
   margin-left: 0.9vw;
-  
+  background-color: var(--div-color-white);
   height: 50px;
   margin-top: 0.5vh;
 }
-#todoview p{
+
+#todoview p {
   padding-left: 2vw;
- flex: 1;
+  flex: 1;
 }
-#todoview input[type="checkbox"]{
+#todoview input[type="checkbox"] {
   margin-left: 2vw;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   padding: 9px;
   border-radius: 50px;
-  background: #F34F56;
+  background: #f34f56;
   border: none;
 }
-#todoview input[type="checkbox"]:checked{
-  background: #3AEA49;
+#todoview input[type="checkbox"]:checked {
+  background: #3aea49;
 }
-#bin{
+#bin {
   transition: ease-in-out 0.2s;
 }
-#bin:hover{
+#bin:hover {
   fill: red;
   transition: ease-in-out 0.2s;
 }
-#star{
+#star {
   transition: ease-in-out 0.2s;
 }
-#star:hover{
+#star:hover {
   fill: yellow;
-  transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.1s;
 }
-#settingsmenu{
+.settingsmenu {
   display: none; /* Das Menü ist standardmäßig versteckt */
   position: absolute; /* Absolut positioniert, um an einer bestimmten Stelle angezeigt zu werden */
-  background-color: rgba(0, 0, 0, 0.932);
+  background-color: #f3f0f0;
   border: 1px solid #ccc;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000; /* Stellt sicher, dass es über anderen Elementen liegt */
@@ -167,13 +180,19 @@ header div h1, svg{
   width: auto;
   font-size: 15px;
   transform: translateX(-80%);
+  color: black;
 }
-#settingsmenu ul{
+
+.settingsmenu svg {
+  fill: black;
+}
+
+#settingsmenu ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-#settingsmenu li{
+#settingsmenu li {
   display: flex; /* Flexbox für horizontale Ausrichtung */
   align-items: center; /* Zentriert den Inhalt vertikal */
   padding: 2px 6px;
@@ -181,9 +200,7 @@ header div h1, svg{
   border-radius: 25px;
   margin: 5px;
 }
-#settingsmenu li:hover{
-  background-color: rgba(43, 41, 41, 0.637);
-}
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -208,9 +225,8 @@ header div h1, svg{
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-  
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -221,8 +237,8 @@ header div h1, svg{
   left: 4px;
   bottom: 2.58px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
