@@ -52,19 +52,6 @@ header.dark {
   color: white;
 }
 
-.moreMenu.dark {
-  display: none; /* Das Menü ist standardmäßig versteckt */
-  position: absolute; /* Absolut positioniert, um an einer bestimmten Stelle angezeigt zu werden */
-  background-color: rgba(0, 0, 0, 0.438);
-  border: 1px solid #ccc;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000; /* Stellt sicher, dass es über anderen Elementen liegt */
-  border: none;
-  border-radius: 25px;
-  width: auto;
-  font-size: 15px;
-  color: white;
-}
 
 .todoview.dark div {
   display: flex;
@@ -103,11 +90,4 @@ header.dark {
   background-color: rgba(43, 41, 41, 0.637);
 }
 
-.moreMenu.dark li:hover {
-  background-color: rgba(
-    43,
-    41,
-    41,
-    0.637
-  ); /* Hintergrundfarbe beim Hover-Effekt */
-}
+
