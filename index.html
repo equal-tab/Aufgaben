@@ -7,9 +7,11 @@
     <title>Aufgaben</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="components/darkmode.css">
+    <link rel="stylesheet" href="components/calender.css">
     <script src="script.js" defer></script>
     <script src="components/darkmode.js" defer></script>
     <script src="components/dropdown.js" defer></script>
+    <script src="components/calender.js" defer></script>
 </head>
 
 <body>
@@ -44,7 +46,7 @@
             <form class="addform" action="" onsubmit="newToDo(); return false">
                 <input id="input" type="text" placeholder="Aufgbabe hier eingeben">
             </form>
-            <button id="calender">
+            <button data-modal-target="#modal" id="calender">
                 <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
                     fill="#e8eaed">
                     <path
@@ -56,6 +58,22 @@
         </div>
     </div>
     <div id="todoview" class="todoview">
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">
+                <p>Fälligkeits Datum Hinzufügen</p>
+            </div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="values">
+                <input class="date" id="date" type="date">
+               
+                <input class="time" id="time" type="time">
+            </div>
+        </div>
     </div>
 </body>
 
