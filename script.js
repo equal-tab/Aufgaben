@@ -1,14 +1,28 @@
-document.getElementById("add").addEventListener("click", newToDo);
+document.getElementById("add").addEventListener("click", newToDo())
+
+
 document.addEventListener("DOMContentLoaded", loadTodos);
+
+function formatDate(dateString) {
+  if(!dateString) return "";
+  const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+}
 
 function newToDo() {
   let input = document.getElementById("input");
+  let time = document.getElementById("time");
+  let date = document.getElementById("date");
   let todoview = document.getElementById("todoview");
 
   if (input.value.trim() !== "") {
     const newTodo = {
       text: input.value,
-      
+      time: time.value,
+      date: date.value,
       _completed: false,
       get completed() {
         return this._completed;
@@ -24,6 +38,7 @@ function newToDo() {
 
     const todoItem = document.createElement("div");
     todoItem.classList.add("todo");
+    
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
@@ -34,13 +49,11 @@ function newToDo() {
     textElement.textContent = input.value;
     todoItem.appendChild(textElement);
 
-    
+    const timeDateElement = document.createElement("p");
+    timeDateElement.textContent = `${formatDate(date.value)} ${time.value}`; 
+    todoItem.appendChild(timeDateElement);
 
-
-    const starSvg = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "svg"
-    );
+    const starSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     starSvg.setAttribute("id", "star");
     starSvg.setAttribute("height", "24px");
     starSvg.setAttribute("width", "24px");
@@ -49,10 +62,7 @@ function newToDo() {
     starSvg.innerHTML = `<path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>`;
     todoItem.appendChild(starSvg);
 
-    const binSvg = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "svg"
-    );
+    const binSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     binSvg.setAttribute("class", "bin");
     binSvg.setAttribute("height", "24px");
     binSvg.setAttribute("width", "24px");
@@ -67,12 +77,13 @@ function newToDo() {
 
     const checkbox2 = document.querySelector(".done");
     checkbox2.addEventListener("click", () => {
-      deleteTodo(todo.text, todoItem);
+      deleteTodo(newTodo.text, todoItem);
     });
-    todoview.appendChild(todoItem);
 
     todoview.appendChild(todoItem);
     input.value = "";
+    time.value = "";
+    date.value = "";
   }
 }
 
@@ -90,6 +101,9 @@ function loadTodos() {
   storedTodos.forEach((todo) => {
     const todoItem = document.createElement("div");
     todoItem.classList.add("todo");
+    todoItem.style.display = "flex";
+    todoItem.style.justifyContent = "space-between";
+    todoItem.style.alignItems = "center"; 
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
@@ -100,11 +114,11 @@ function loadTodos() {
     textElement.textContent = todo.text;
     todoItem.appendChild(textElement);
 
+    const timeDateElement = document.createElement("p");
+    timeDateElement.textContent = `${formatDate(todo.date)} ${todo.time}`; 
+    todoItem.appendChild(timeDateElement);
 
-    const starSvg = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "svg"
-    );
+    const starSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     starSvg.setAttribute("id", "star");
     starSvg.setAttribute("height", "24px");
     starSvg.setAttribute("width", "24px");
@@ -113,10 +127,7 @@ function loadTodos() {
     starSvg.innerHTML = `<path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>`;
     todoItem.appendChild(starSvg);
 
-    const binSvg = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "svg"
-    );
+    const binSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     binSvg.setAttribute("class", "bin");
     binSvg.setAttribute("height", "24px");
     binSvg.setAttribute("width", "24px");
@@ -130,13 +141,5 @@ function loadTodos() {
     });
 
     todoview.appendChild(todoItem);
-
-    const checkbox2 = document.querySelector(".done");
-    checkbox2.addEventListener("click", () => {
-      deleteTodo(todo.text, todoItem);
-    });
-    todoview.appendChild(todoItem);
-
   });
 }
-
