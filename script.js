@@ -4,8 +4,6 @@ document.addEventListener("DOMContentLoaded", loadTodos);
 function newToDo() {
   let input = document.getElementById("input");
   let todoview = document.getElementById("todoview");
-  let time = document.getElementById("time");
-  let date = document.getElementById("date");
 
   if (input.value.trim() !== "") {
     const newTodo = {
@@ -20,9 +18,8 @@ function newToDo() {
       },
     };
 
-
     let todos = JSON.parse(localStorage.getItem("todos")) || [];
-    todos.push(newTodo, newTime, newDate);
+    todos.push(newTodo);
     localStorage.setItem("todos", JSON.stringify(todos));
 
     const todoItem = document.createElement("div");
@@ -37,13 +34,7 @@ function newToDo() {
     textElement.textContent = input.value;
     todoItem.appendChild(textElement);
 
-    const dateValue = document.getElementById("date").value;
-    date.textContent = dateValue;
-    todoItem.appendChild(date);
-  
-    const timeValue = document.getElementById("time").value;
-    time.textContent = timeValue;
-    todoItem.appendChild(time);
+    
 
 
     const starSvg = document.createElementNS(
@@ -109,16 +100,6 @@ function loadTodos() {
     textElement.textContent = todo.text;
     todoItem.appendChild(textElement);
 
-
-    
-    const dateValue = document.getElementById("date").value;
-    date.textContent = dateValue;
-    todoItem.appendChild(date);
-  
-   
-    const timeValue = document.getElementById("time").value;
-    time.textContent = timeValue;
-    todoItem.appendChild(time);
 
     const starSvg = document.createElementNS(
       "http://www.w3.org/2000/svg",
