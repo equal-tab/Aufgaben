@@ -16,6 +16,7 @@ function Theme() {
   const closeButton = document.querySelector(".close-button");
   const date = document.querySelector(".date");
   const time = document.querySelector(".time");
+  const modalBody = document.querySelector(".modal-body");
 
   const isDark = body.classList.contains("dark");
   const theme = isDark ? "Light Mode" : "Dark Mode";
@@ -32,6 +33,8 @@ function Theme() {
   closeButton.classList.toggle("dark");
   date.classList.toggle("dark");
   time.classList.toggle("dark");
+  modalBody.classList.toggle("dark");
+  
 
   modeText.innerText = theme;
   localStorage.setItem("PageTheme", JSON.stringify(theme));
@@ -50,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeButton = document.querySelector(".close-button");
   const date = document.querySelector(".date");
   const time = document.querySelector(".time");
+  const modalBody = document.querySelector(".modal-body");
 
   const storedTheme = localStorage.getItem("PageTheme");
   if (storedTheme) {
@@ -67,6 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
       closeButton.classList.add("dark");
       date.classList.add("dark");
       time.classList.add("dark");
+      modalBody.classList.add("dark");
     }
   }
 });
+

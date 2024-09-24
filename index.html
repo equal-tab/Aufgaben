@@ -69,9 +69,13 @@
         </div>
         <div class="modal-body">
             <div class="values">
-                <input class="date" id="date" type="date">
-               
-                <input class="time" id="time" type="time">
+                <form action="" onsubmit="newToDo(); return false">
+                    <input class="date" id="date" type="date">
+                </form>
+                <form action="" onsubmit="newToDo(); return false">
+                    <input class="time" id="time" type="time">
+                    <button onclick="newToDo()">add</button>
+                </form>
             </div>
         </div>
     </div>

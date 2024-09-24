@@ -52,7 +52,6 @@ header.dark {
   color: white;
 }
 
-
 .todoview.dark div {
   display: flex;
   justify-content: space-between;
@@ -96,13 +95,12 @@ header.dark {
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   transition: 200ms ease-in-out;
-  border: 1px solid black;
   border-radius: 10px;
   z-index: 10;
-  background-color: rgba(0, 0, 0, 0.89);
-  width: 40vw;
+  background-color: rgba(0, 0, 0, 0.486);
+  width: 30vw;
   max-width: 80%;
-  height: 10vh;
+  height: 15vh;
   color: white;
 }
 
@@ -114,9 +112,26 @@ header.dark {
   border-bottom: 1px solid white;
 }
 
-.close-button.dark{
+.close-button.dark {
   color: white;
 }
-.date.dark, .time.dark{
+
+.time.dark, .date.dark {
   border: 0.5px solid black;
+  border: none;
+  outline: none;
+  height: 2.7vh;
+  width: 15vw;
+  font-size: 17px;
+  width: 10vw;
+  background-color: rgba(63, 62, 62, 0.61);
+  border-radius: 25px;
+  padding: 5px;
+  color: white;
+
+}
+.modal-body.dark {
+  padding: 10px 15px;
+  width: 30vw;
+  height: 15vh;
 }
