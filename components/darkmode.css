@@ -135,3 +135,11 @@ header.dark {
   width: 30vw;
   height: 15vh;
 }
+.addTime.dark{
+  padding: 5px;
+  border-radius: 25px;
+  background-color: rgba(63, 62, 62, 0.61);
+  border: none;
+  outline: none;
+  color: white;
+}

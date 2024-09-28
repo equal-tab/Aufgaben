@@ -1,19 +1,32 @@
-document.getElementById("add").addEventListener("click", newToDo())
 
+function scheduleTodoNotification(todo) {
+  const todoTime = new Date(`${todo.date}T${todo.time}`); 
+  const currentTime = new Date();
+  const timeDifference = todoTime - currentTime;
+
+  if (timeDifference > 0) {
+      setTimeout(() => {
+          showNotification(todo.text); 
+      }, timeDifference);
+  }
+}
+
+document.getElementById("add").addEventListener("click", newToDo());
 
 document.addEventListener("DOMContentLoaded", loadTodos);
-
+document.getElementById("addTime").addEventListener("click", newToDo)
 function formatDate(dateString) {
-  if(!dateString) return "";
+  if (!dateString) return "";
   const date = new Date(dateString);
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
   const year = date.getFullYear();
   return `${day}/${month}/${year}`;
 }
 
+
 function newToDo() {
-  let input = document.getElementById("input");
+  
   let time = document.getElementById("time");
   let date = document.getElementById("date");
   let todoview = document.getElementById("todoview");
@@ -38,7 +51,6 @@ function newToDo() {
 
     const todoItem = document.createElement("div");
     todoItem.classList.add("todo");
-    
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
@@ -47,22 +59,20 @@ function newToDo() {
 
     const textElement = document.createElement("p");
     textElement.textContent = input.value;
+    textElement.classList = "doneText";
     todoItem.appendChild(textElement);
 
     const timeDateElement = document.createElement("p");
-    timeDateElement.textContent = `${formatDate(date.value)} ${time.value}`; 
+    timeDateElement.textContent = `${formatDate(date.value)} ${time.value}`;
+    timeDateElement.classList = "doneText";
     todoItem.appendChild(timeDateElement);
 
-    const starSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    starSvg.setAttribute("id", "star");
-    starSvg.setAttribute("height", "24px");
-    starSvg.setAttribute("width", "24px");
-    starSvg.setAttribute("viewBox", "0 -960 960 960");
-    starSvg.setAttribute("fill", "#e8eaed");
-    starSvg.innerHTML = `<path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>`;
-    todoItem.appendChild(starSvg);
+   
 
-    const binSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    const binSvg = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "svg"
+    );
     binSvg.setAttribute("class", "bin");
     binSvg.setAttribute("height", "24px");
     binSvg.setAttribute("width", "24px");
@@ -75,9 +85,9 @@ function newToDo() {
       deleteTodo(newTodo.text, todoItem);
     });
 
-    const checkbox2 = document.querySelector(".done");
-    checkbox2.addEventListener("click", () => {
-      deleteTodo(newTodo.text, todoItem);
+    const done = document.querySelector(".done");
+    done.addEventListener("click", () => {
+      done.classList = "doneright";
     });
 
     todoview.appendChild(todoItem);
@@ -103,29 +113,22 @@ function loadTodos() {
     todoItem.classList.add("todo");
     todoItem.style.display = "flex";
     todoItem.style.justifyContent = "space-between";
-    todoItem.style.alignItems = "center"; 
+    todoItem.style.alignItems = "center";
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.classList = "done";
+    checkbox.classList.add("done"); 
     todoItem.appendChild(checkbox);
 
     const textElement = document.createElement("p");
     textElement.textContent = todo.text;
+    textElement.classList = "doneText";
     todoItem.appendChild(textElement);
 
     const timeDateElement = document.createElement("p");
-    timeDateElement.textContent = `${formatDate(todo.date)} ${todo.time}`; 
+    timeDateElement.textContent = `${formatDate(todo.date)} ${todo.time}`;
+    timeDateElement.classList = "doneText";
     todoItem.appendChild(timeDateElement);
-
-    const starSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    starSvg.setAttribute("id", "star");
-    starSvg.setAttribute("height", "24px");
-    starSvg.setAttribute("width", "24px");
-    starSvg.setAttribute("viewBox", "0 -960 960 960");
-    starSvg.setAttribute("fill", "#e8eaed");
-    starSvg.innerHTML = `<path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z"/>`;
-    todoItem.appendChild(starSvg);
 
     const binSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     binSvg.setAttribute("class", "bin");
@@ -140,6 +143,17 @@ function loadTodos() {
       deleteTodo(todo.text, todoItem);
     });
 
+
+    checkbox.addEventListener("change", function () {
+      if (checkbox.checked) {
+        textElement.classList.add("doneright");
+        timeDateElement.classList.add("doneright");
+      } else {
+        textElement.classList.remove("doneright");
+        timeDateElement.classList.remove("doneright");
+      }
+    });
     todoview.appendChild(todoItem);
   });
 }
+

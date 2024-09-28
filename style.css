@@ -235,11 +235,19 @@ input:checked + .slider:before {
   transform: translateX(13px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
 
 .slider.round:before {
   border-radius: 50%;
+}
+.doneright{
+  text-decoration: line-through;
+  color: rgba(255, 255, 255, 0.384);
+}
+.addTimeDiv{
+  display: flex;
+  justify-content: center;
+  padding: 2px;
 }
