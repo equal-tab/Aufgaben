@@ -71,10 +71,11 @@
     color: black;
   }
   .addTime{
-    padding: 5px;
+    padding: 5px 10px;
     border-radius: 25px;
     background-color: rgba(219, 216, 216, 0.61);
     border: none;
     outline: none;
     color: black;
+    font-size: 18px;
   }

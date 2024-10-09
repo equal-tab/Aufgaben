@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const addTime = document.querySelector(".addTime");
 
   const storedTheme = localStorage.getItem("PageTheme");
-  if (storedTheme) {
     const theme = JSON.parse(storedTheme);
     if (theme === "Dark Mode") {
       body.classList.add("dark");
@@ -78,5 +77,5 @@ document.addEventListener("DOMContentLoaded", () => {
       addTime.classList.add("dark");
     }
   }
-});
+);
 

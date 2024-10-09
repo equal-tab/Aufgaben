@@ -119,14 +119,7 @@ header.dark {
 .time.dark, .date.dark {
   border: 0.5px solid black;
   border: none;
-  outline: none;
-  height: 2.7vh;
-  width: 15vw;
-  font-size: 17px;
-  width: 10vw;
   background-color: rgba(63, 62, 62, 0.61);
-  border-radius: 25px;
-  padding: 5px;
   color: white;
 
 }
@@ -136,10 +129,6 @@ header.dark {
   height: 15vh;
 }
 .addTime.dark{
-  padding: 5px;
-  border-radius: 25px;
   background-color: rgba(63, 62, 62, 0.61);
-  border: none;
-  outline: none;
   color: white;
 }
