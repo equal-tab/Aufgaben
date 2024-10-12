@@ -1,17 +1,17 @@
-const openModalButtons = document.querySelectorAll('[data-modal-target]')
-const closeModalButtons = document.querySelectorAll('[data-close-button]')
+const openModalButtons = document.querySelectorAll('[data-modal-target]') // Sammelt alle Elemente, die das Attribut 'data-modal-target' haben.
+const closeModalButtons = document.querySelectorAll('[data-close-button]') // Sammelt alle Elemente, die das Attribut 'data-close-button' haben.
 
 
 openModalButtons.forEach(button => {
   button.addEventListener('click', () => {
-    const modal = document.querySelector(button.dataset.modalTarget)
+    const modal = document.querySelector(button.dataset.modalTarget) // Findet das zu öffnende Modal basierend auf dem data-modal-target-Attribut.
     openModal(modal)
   })
 })
 
 closeModalButtons.forEach(button => {
   button.addEventListener('click', () => {
-    const modal = button.closest('.modal')
+    const modal = button.closest('.modal') // Findet das nächstgelegene Modal-Element, das diesen Button enthält.
     closeModal(modal)
   })
 })
@@ -28,8 +28,8 @@ function closeModal(modal) {
 
 const draggableElement = document.getElementById('modal');
 
-draggableElement.addEventListener('mousedown', (event) => {
-  
+draggableElement.addEventListener('mousedown', (event) => { //fügt einen Event Listener für das Drücken der Maustaste hinzu, um das Element verschieben zu können
+  // Berechnet die Startposition der Maus relativ zur oberen linken Ecke des Elements.
   const startX = event.clientX - draggableElement.offsetLeft;
   const startY = event.clientY - draggableElement.offsetTop;
 
@@ -39,10 +39,12 @@ draggableElement.addEventListener('mousedown', (event) => {
     draggableElement.style.top = event.clientY - startY + 'px';
   };
 
-  document.addEventListener('mousemove', moveElement);
+ // Fügt einen Event-Listener für das Bewegen der Maus hinzu.
+ document.addEventListener('mousemove', moveElement);
 
-  document.addEventListener('mouseup', () => {
-    document.removeEventListener('mousemove', moveElement);
+ // Fügt einen Event-Listener für das Loslassen der Maustaste hinzu, um das Bewegen zu beenden.
+ document.addEventListener('mouseup', () => {
+   document.removeEventListener('mousemove', moveElement);
   });
 });
 
